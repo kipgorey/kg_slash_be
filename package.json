@@ -5,21 +5,24 @@
 	"description": "Slash backend take home challenge",
 	"main": "index.js",
 	"scripts": {
-		"test": "tsx src/tests/runner.ts",
-		"build": "tsc",
-		"check": "tsx src/tests/check.ts"
+	  "start": "node --loader ts-node/esm src/server.ts", 
+	  "test": "tsx src/tests/runner.ts",
+	  "build": "tsc",
+	  "check": "tsx src/tests/check.ts"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@types/express": "^4.17.21",
-		"express": "^4.21.0",
-		"ts-node": "^10.9.2",
-		"tsx": "^4.19.1",
-		"typescript": "^5.6.2"
+	  "@types/express": "^4.17.21",
+	  "express": "^4.21.1",
+	  "ts-node": "^10.9.2",
+	  "tsx": "^4.19.1",
+	  "typescript": "^5.6.2"
 	},
 	"dependencies": {
-		"tinypool": "^1.0.1"
+	  "tinypool": "^1.0.1",
+	  "sqlite3": "^5.0.0"
 	}
-}
+  }
+  
