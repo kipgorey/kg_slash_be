@@ -6,7 +6,6 @@ Tradeoffs:
 - Used db transactions to manage concurrency issues which was efficient over a short time but doesn't cover production level design
 
 
-
 Design Decisions:
 
 - Postgress used because it has MVCC and general ease of use
@@ -21,14 +20,17 @@ Design Decisions:
 
 Changes if I had more time:
 
+- If I had more time I would first move the DB to a 3rd part provider for scalability and security and then work on improving API security like rate limiting, using auth_tokens and data encryption.
+
+- I would implement better caching mechanisms so that the database calls were quicker which would hopefully improve the scalability.
 
 
+Questions:
+
+- was a bit confused on the second to last command example given, earlier when the user requests an overdraft they are denied but in the second to last one it seemed to indicate they could? >  I just  made it so their balance could never go negative.
 
 
-
-
-
-
+Time Spent: ~5 hours
 
 
 
