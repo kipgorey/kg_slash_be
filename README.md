@@ -1,3 +1,40 @@
+# My Notes
+
+Tradeoffs:
+
+- Made tradeoffs in respect to prioritizing the core functionality over performing extensive testing + error handling
+- Used db transactions to manage concurrency issues which was efficient over a short time but doesn't cover production level design
+
+
+
+Design Decisions:
+
+- Postgress used because it has MVCC and general ease of use
+
+- Hosted the DB on my local machine. This decision was made for brevity and simplicity, allowing for quick iterations and easier debugging during development. It reduced setup time and made it easier to test locally without deploying to an external environment
+
+- DB Schema: Postgress
+  - Mainly had to think about the Accounts table and adding pending withdraws was something that I initially thought i could do without putting in the db but realized with multiple instances and requests coming in at the same time, it would have to be stored in the database
+  - Transactions table: pretty basic, was created in order to help keep track of each unique transaction and using the time, the transactions should be audited fairly easy per accountId
+  - Also, I added an ENUM type  for the type field in the transactions table. This decision was made to limit the types of transactions that can be recorded, ensuring that only valid types are accepted
+
+
+Changes if I had more time:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Slash backend take home
 
 We're looking for strong backend engineers who are capable of building performant and fault-tolerant systems that scale. We want engineers who can think and ship quickly, and are focused on getting things done. If you are looking for more product-focused or frontend roles, check out our other challenges:

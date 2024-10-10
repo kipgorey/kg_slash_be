@@ -41,7 +41,7 @@ services:
       POSTGRES_PASSWORD: admin
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./src/db/migrations/schema.sql:/docker-entrypoint-initdb.d/schema.sql  # Mount the schema script
+      - ./src/db/migrations/schema.sql:/docker-entrypoint-initdb.d/schema.sql 
     ports:
       - "5432:5432"
     networks:
@@ -53,3 +53,4 @@ volumes:
 networks:
   app_network:
     driver: bridge
+

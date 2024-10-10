@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
     }
 );
 
-// Define your model
+// Account Model for DB
 const Account = sequelize.define('Account', {
     id: {
         type: DataTypes.STRING,
@@ -28,20 +28,22 @@ const Account = sequelize.define('Account', {
         type: DataTypes.FLOAT,
         defaultValue: 0,
     },
+    pendingWithdrawals: {  
+        type: DataTypes.FLOAT,
+        defaultValue: 0,
+    }
 });
 
-// Initialize database and sync
 const initializeDatabase = async () => {
     try {
         await sequelize.authenticate();
         console.log('Database connection established successfully.');
 
-        // Read and execute the schema.sql file
+        // schema file exec.
         const schemaPath = path.join(__dirname, 'migrations', 'schema.sql');
         const schemaSql = fs.readFileSync(schemaPath, 'utf8');
         await sequelize.query(schemaSql);
 
-        // Sync models without force
         await sequelize.sync({ alter: true });
 
         console.log('Database initialized successfully.');
